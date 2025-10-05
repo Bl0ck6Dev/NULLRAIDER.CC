@@ -139,9 +139,7 @@ async def spam_cargos(guild):
 async def spam_message(guild):
     """Envia 10 mensagens em todos os canais de texto."""
     if not guild.me.guild_permissions.send_messages:
-        print("Erro: O bot precisa de permissões de 'Enviar
-
- Mensagens'.")
+        print("Erro: O bot precisa de permissões de 'Enviar Mensagens'.")
         return
     try:
         for channel in guild.text_channels:
